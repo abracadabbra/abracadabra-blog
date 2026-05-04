@@ -83,19 +83,206 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
       }
 
       @media (max-width: 480px) {
-        main { 
-          padding: 1.5rem 0.75rem; 
+        main {
+          padding: 1.5rem 0.75rem;
         }
-        h1 { 
+        h1 {
           font-size: 1.5rem;
         }
-        h2 { 
+        h2 {
           font-size: 1.1rem;
         }
         .tag {
           font-size: 0.75rem;
           padding: 0.15rem 0.5rem;
         }
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 2rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+      :global(.dark) .hero-badge {
+        background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+      }
+      .hero-badge span {
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+
+      .agent-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      :global(.dark) .agent-card {
+        background: rgb(var(--card));
+      }
+      .agent-card {
+        padding: 1.25rem;
+        background: white;
+        border: 1px solid rgb(var(--gray-light));
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        color: inherit;
+      }
+      .agent-card:hover {
+        border-color: rgb(var(--accent));
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
+      }
+      :global(.dark) .agent-card:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      }
+      .agent-card h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: rgb(var(--black));
+      }
+      :global(.dark) .agent-card h3 {
+        color: rgb(var(--foreground));
+      }
+      .agent-card p {
+        font-size: 0.8rem;
+        color: rgb(var(--gray-dark));
+        margin: 0;
+        line-height: 1.5;
+      }
+      :global(.dark) .agent-card p {
+        color: rgb(var(--muted-foreground));
+      }
+
+      .quote {
+        padding: 1rem 1.25rem;
+        background: rgb(var(--gray-light));
+        border-left: 4px solid rgb(var(--accent));
+        border-radius: 0 8px 8px 0;
+        font-style: italic;
+        color: rgb(var(--gray-dark));
+        margin: 1.5rem 0;
+      }
+      .quote-author {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+      }
+
+      .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+      .tool-tag {
+        padding: 0.5rem 0.75rem;
+        background: #f0f4ff;
+        border: 1px solid #d8e4ff;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        color: #4a6cf7;
+        text-align: center;
+      }
+      :global(.dark) .tool-tag {
+        background: #1e293b;
+        border-color: #334155;
+        color: #818cf8;
+      }
+
+      .workflow-level {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      @media (max-width: 720px) {
+        .workflow-level {
+          flex-direction: column;
+        }
+      }
+      
+      .level-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.25rem;
+        background: white;
+        border: 1px solid rgb(var(--gray-light));
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        color: inherit;
+      }
+      :global(.dark) .level-card {
+        background: rgb(var(--card));
+      }
+      .level-card:hover {
+        border-color: rgb(var(--accent));
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transform: translateX(4px);
+      }
+      :global(.dark) .level-card:hover {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      }
+      .level-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        font-size: 1.25rem;
+        flex-shrink: 0;
+      }
+      .level-icon.vibe { background: #dbeafe; color: #2563eb; }
+      .level-icon.harness { background: #ede9fe; color: #7c3aed; }
+      .level-icon.trellis { background: #dcfce7; color: #16a34a; }
+      :global(.dark) .level-icon.vibe { background: #1e3a5f; }
+      :global(.dark) .level-icon.harness { background: #2e1065; }
+      :global(.dark) .level-icon.trellis { background: #14532d; }
+      .level-content h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        color: rgb(var(--black));
+      }
+      :global(.dark) .level-content h3 {
+        color: rgb(var(--foreground));
+      }
+      .level-content p {
+        font-size: 0.8rem;
+        color: rgb(var(--gray-dark));
+        margin: 0;
+        line-height: 1.5;
+      }
+      :global(.dark) .level-content p {
+        color: rgb(var(--muted-foreground));
+      }
+
+      @media (max-width: 720px) {
+        .tools-grid { grid-template-columns: repeat(3, 1fr); }
+        .agent-cards { grid-template-columns: 1fr; }
+        .workflow-level { gap: 0.5rem; }
+        .level-card { padding: 0.75rem 1rem; }
+        .level-icon { width: 2rem; height: 2rem; font-size: 1rem; }
+      }
+      @media (max-width: 480px) {
+        .tools-grid { grid-template-columns: repeat(2, 1fr); }
       }
     </style>
   </head>
@@ -112,6 +299,60 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
           <strong>风控反作弊系统</strong>建设。目前就职于曹操出行
           （杭州优行科技），负责出行智能研发相关工作。
         </p>
+      </div>
+
+      <div class="section">
+        <h2>🤖 AI 施法之道</h2>
+        <div class="hero-badge">
+          <span>✨</span> abracadabra
+        </div>
+        <p>
+          AI 编程就像施法——用咒语（Prompt）让代码凭空出现。
+        </p>
+
+        <div class="quote">
+          "AI 不再是少数人的特权，也不再需要巨额资金或神秘技能门槛。
+          LLM 是新一代编译器，编译的不是语法，而是意图。"
+          <div class="quote-author">—— 来自实践的感悟</div>
+        </div>
+
+        <h3 style="font-size: 1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem;">
+          常用 AI 编程工具
+        </h3>
+        <div class="tools-grid">
+          <span class="tool-tag">Claude Code</span>
+          <span class="tool-tag">OpenCode</span>
+          <span class="tool-tag">Cursor</span>
+          <span class="tool-tag">Antigravity</span>
+          <span class="tool-tag">Codex</span>
+        </div>
+
+        <h3 style="font-size: 1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem;">
+          核心工作流
+        </h3>
+        <div class="workflow-level">
+          <a href="/blog" class="level-card">
+            <div class="level-icon vibe">🚀</div>
+            <div class="level-content">
+              <h3>Vibe Coding</h3>
+              <p>快速从想法到可验证原型</p>
+            </div>
+          </a>
+          <a href="/blog" class="level-card">
+            <div class="level-icon harness">⚡</div>
+            <div class="level-content">
+              <h3>Harness Engineering</h3>
+              <p>规范约束让AI稳定产出</p>
+            </div>
+          </a>
+          <a href="/blog" class="level-card">
+            <div class="level-icon trellis">🏗️</div>
+            <div class="level-content">
+              <h3>Trellis</h3>
+              <p>工程化沉淀方法与经验</p>
+            </div>
+          </a>
+        </div>
       </div>
 
       <div class="section">
@@ -156,18 +397,6 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
           <span class="tag">JavaScript</span>
           <span class="tag">Vue</span>
           <span class="tag">React</span>
-
-          <!-- 技术前沿 -->
-          <span class="tag">LangChain</span>
-          <span class="tag">Agent</span>
-          <span class="tag">RAG</span>
-          <span class="tag">AI编程工具</span>
-
-          <!-- 工程化 -->
-          <span class="tag">Git</span>
-          <span class="tag">Docker</span>
-          <span class="tag">SkyWalking</span>
-          <span class="tag">Grafana</span>
         </div>
       </div>
     </main>
