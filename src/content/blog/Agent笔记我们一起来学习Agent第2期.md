@@ -22,7 +22,7 @@ categories: ['AI开发']
 
 定义：Agent在每次执行任务时能够获得的外部信息。**一个Agent的质量很大程度上取决于它能访问到的上下文**——即使系统提示写得再完美，缺少正确的上下文（背景、语境、解决问题需要的信息）也会导致结果不佳。
 
-![image|375x500](upload://mdyB91yP38CmW7dKE2ryw0hFQBe.jpeg)
+![agent-p2-1](../../assets/blog-images/agent-p2-1.png)
 
 在Agno中，提供了三种原生方式进行context的提供。
 
@@ -119,7 +119,7 @@ agent.run("我的区域是哪里？", dependencies={"region": "eu-west-1"})
 
 讲完了这些，我们就了解了两种常见的上下文注入，其实这两者都很简单。一个就是用知识库的方式，一个就是用程序自动注入的方式。
 
-![image|375x500](upload://fZVMjyayPjsbTqGh4pM7qIWtMnV.jpeg)
+![agent-p2-2](../../assets/blog-images/agent-p2-2.png)
 
 那如果我们需要的上下文比较复杂，不能通过简单查询就马上得到呢？比如你需要 Agent 知道今天公司某个工作任务的进度情况，得同时操作 Slack、GitHub、Google Drive、公司数据库才能得到"这个任务进行到什么程度了"这个上下文。（注意，上下文不是你的目的，你的目的可能更大，比如需要决策明天的公司加班与否）
 
@@ -131,7 +131,7 @@ agent.run("我的区域是哪里？", dependencies={"region": "eu-west-1"})
 
 所以必须引入子 Agent 来做上下文的查询。我们不需要主 Agent 知道那么多细节，只需要子 Agent 去根据问题调查得到上下文。对于这种子 Agent，Agno 提供了 Context Provider 来管理。
 
-![image|375x500](upload://pEcKwQoCtKBSDsjbtsrKmztg6rV.jpeg)
+![agent-p2-3](../../assets/blog-images/agent-p2-3.png)![image|375x500](upload://pEcKwQoCtKBSDsjbtsrKmztg6rV.jpeg)
 
 ---
 
@@ -233,7 +233,7 @@ agent.run("最近 Slack 里有人问过 Web 搜索吗？")
 
 我认为最大的好处还是统一，这个子 Agent 的工具会自动命名，如 `query_<provider_name>`，后续导出文档也很简单。劣势在于不自由，如果你的子 Agent 很灵活，实现的功能不附属于主 Agent，那么就自便。
 
-![image|375x500](upload://iORpCGvw5WfgkvP6rMzHiiPyHdw.jpeg)
+![agent-p2-4](../../assets/blog-images/agent-p2-4.png)![image|375x500](upload://iORpCGvw5WfgkvP6rMzHiiPyHdw.jpeg)
 
 ## 实现
 

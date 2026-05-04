@@ -8,8 +8,8 @@ categories: ['AI开发']
 
 Harness engineering 最早由 Mitchell Hashimoto 在 [My AI Adoption Journey – Mitchell Hashimoto](https://mitchellh.com/writing/my-ai-adoption-journey) 取名，紧接着 OAI ~~(蹭热度还得是你)~~ 在 2 月 11 日通过 Ryan Lopopolo [Harness engineering: leveraging Codex in an agent-first world | OpenAI](https://openai.com/index/harness-engineering/) 用一个完整的生产案例成功让这个词出圈。
 
-![image|690x344, 50%](upload://jNEB5FopFLZrimXMOtdKW0GERjv.png)
-![image|690x148, 50%](upload://qfY8q1rSkh6FuujvLLpaVVkbuAh.png)
+
+![harness-pillars-1](../../assets/blog-images/harness-pillars-1.png)
 
 > 一言以蔽之：模型之外皆工程
 
@@ -25,7 +25,7 @@ Harness engineering 最早由 Mitchell Hashimoto 在 [My AI Adoption Journey –
 
 呃🤔 好像所谓 `Harness Engineering` 又是一次硬造新词的表达方式了？这个不就是之前写过的 `context engineering` (context window 里到底应该塞哪些 token) [Effective context engineering for AI agents \ Anthropic](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) + `action space/environment` + `feedback loop`？
 
-![image|261x193, 75%](upload://7BEuXSShtl1v28xQNa7nUvDy11r.png)
+![harness-pillars-2](../../assets/blog-images/harness-pillars-2.png)
 
 于是，还是三分而立（`Three Pillars`）更容易理解：
 
@@ -69,4 +69,4 @@ Harness engineering 最早由 Mitchell Hashimoto 在 [My AI Adoption Journey –
 梦到哪里写哪里 
 🐱 🐈
 
-![image|225x224, 50%](upload://s8ZQdvpQEED5OQRGgvRKP6bGDUT.png)
+![harness-pillars-3](../../assets/blog-images/harness-pillars-3.png)

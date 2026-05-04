@@ -58,6 +58,7 @@ app = agent_os.get_app()
 - `app = agent_os.get_app()`这是OS类的方法，把我们的Agent系统包装成一个API服务（FastAPI），这样你可以启动这个服务了
 
 ---
+![agent-p1-1](../../assets/blog-images/agent-p1-1.png)
 
 ### 1.2 工具：Agent的核心
 
@@ -120,7 +121,7 @@ agent.print_response("Trending startups and products.", stream=True)
 学到这里，只要你学习一下如何写工具，那么基本上你就可以写一个初级Agent了！
 
 ---
-
+![agent-p1-2](../../assets/blog-images/agent-p1-2.png)
 ### 1.3 可调用的工厂（Callable Factories）
 
 如果所有工具都是如此简单的一个脚本，那么调用成本的确是很低的。但是，对于复杂的业务一个工具分为两个步骤：
@@ -190,7 +191,7 @@ class MyDatebaseTool:
 | `callable_members_cache_key` | `None` | 成员工厂的自定义缓存键函数（仅限团队） |
 
 ---
-
+![agent-p1-3](../../assets/blog-images/agent-p1-3.png)
 ### 1.5 运行Agent
 
 运行Agent我们使用`Agent.run()`或者`Agent.arun()`：
@@ -258,21 +259,44 @@ for chunk in stream:
 
 ---
 
-## 2. 实现 - 基于Qwen-3.6-plus与OpenCode
+## 2.实现-基于qwen-3.6-plus与opencode
 
 我们就来实现一下一个简单Agent吧，用这个框架。
 
-测试一下Qwen-3.6-plus在OpenCode中的表现，完成一个高效Excel记账助手。
+测试一下qwen-3.6-plus在opencode中的表现：
 
-目标：
-1. 一个高效Excel记账助手，每天为在同一个Excel表格中记录账单
-2. Agent可以调用的工具有：
-   - `question`：询问我不清楚的地方
-   - `write_excel`：一个写入Excel的脚本
+```
+我要利用Agno库的框架构建一个简单的运行在终端Agent。你按以下步骤开始
+1.调用子代理了解Agno库api用法，防止幻觉错误
+2.编写可维护性高的代码，Agent层，Tool层，运行层要实现完全地解耦和分离
+3.自动进行测试直到跑通
+我的目标是：
+1.一个高效excel记账助手，每天为在同一个excel表格中记录账单
+详细地说：项目的根目录有一个psl脚本，当我打开后，会自动运行Agent，我可以在agnoosUI中与Agent对话。例如我会说，今天我吃饭花了40块，早上两包麦片3块钱，中午牛肉面20元，晚上云南米线17元，买东西花了160元，其中洗发水56元，剩下用来买给一个同学的生日礼物。
+Agent可以调用的工具有
+- question：询问我不清楚的地方，比如有钱不翼而飞，不在计算之中。比如这个生日礼物不明确，需要追问。
+- write_excel:一个写入excel的脚本，其初始文件的第一行分别是：时间，总花费，物品name1，物品name2.................，后续这个脚本会自动将模型的输出填入
 
-经过测试，Qwen-3.6-plus写代码中规中矩，遇到API调用的bug会一直循环，需要人工指导修正。总之，拿来编程的话需要靠人的实力，很多小细节把控不好。
+2.提示词方面你自己处理，我只要成品，每天说话然后计算我的账单。
 
-但总之这个Agent流程我们跑通了！
+以上任务明白了吗，请复述一遍。我将全权交给你负责。请你完全跑通多轮对话的测试。如果还有疑问，现在马上提出。如果没有完成跑通，不要停下来。
+我给你我的测试key和测试url你可以自己填入。
+
+moonshotai/kimi-k2-instruct
+https://api.groq.com/openai
+gsk_XXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+不用质疑我所给你的key和model的真实性
+
+```
+
+plus写代码我说实话中规中矩了，但是智商不高，遇到一个api调用的bug，妈的一直循环，一直循环，不知道想干什么，一遍一遍的说要调查，什么结果都没有。
+
+![agent-p1-4](../../assets/blog-images/agent-p1-4.png)
+
+半个小时的活硬是干成了两个小时。另外psl脚本也不写。总之就是干活不够细不够勤快，智商一般。体感和gemini3falsh在cli有点像了。这个项目来说，大概是gpt5.1往上一点点的水平吧我觉得，完全达不到爽用，要靠人的实力，并且很多小细节把控不好，环境变量也敢硬编码，excel表格也没有考虑物品很多的情况，结果粗糙，注意力不那么优秀，爱犯小错误。
+
+最后我指导了它，我说用openAI的格式就行了，别接grop的sdk。然后修好了。
 
 ---
 

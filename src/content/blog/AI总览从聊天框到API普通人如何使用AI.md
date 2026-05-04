@@ -30,7 +30,7 @@ categories: ['AI入门']
 
 首先，我经常看见有人说想要"学习 AI"，然后问有没有系统的课程、文章之类的。但我觉得这个提问方式本身就是错误的。"AI" 事实上是一个非常笼统的术语，英文全称 Artificial Intelligence，中文译为人工智能。
 
-![人工智能、机器学习、深度学习和生成式 AI 之间有何关系|690x388](upload://bcSYBOh0HzSqOhgV791wvZxcVry.jpeg)
+![ai-overview-1](../../assets/blog-images/ai-overview-1.png)
 *来源：https://www.ibm.com/cn-zh/think/topics/artificial-intelligence*
 
 上图是 IBM 提供的，讲述了人工智能（AI）、机器学习（ML）、深度学习（DL）和现在的生成式人工智能（GenAI）之间的关系。
@@ -52,9 +52,9 @@ categories: ['AI入门']
 
 为了使用 AI，我们不得不先找到一个能用 AI 的地方。对于刚接触 AI 的普通用户，最先接触到的往往就是对应 AI 的网页或应用。
 
-![ChatGPT|690x371](upload://aVe6lwuVBX23GzT2kQgWHPT6ol4.png)
-![Claude|690x372](upload://mJqriRKszah8xDkaXvaaEBzz64u.png)
-![Gemini|690x405](upload://cWig3p54XZH8WcNJPgNzhgzDixg.png)
+![ai-overview-2](../../assets/blog-images/ai-overview-2.png)
+![ai-overview-3](../../assets/blog-images/ai-overview-3.png)
+![ai-overview-4](../../assets/blog-images/ai-overview-4.png)
 
 本质上，这些就是一个聊天框。用户在输入框输入想说的内容，上传相关文件，然后发送——AI 就会给出一个可能正确的答案、图片或代码。
 
@@ -158,7 +158,7 @@ categories: ['AI入门']
 
 下图是 Claude 的 API 价格表：
 
-![Claude 定价|681x500](upload://nafBRB0n0P50mf5vhPVfREeTitW.png)
+![ai-overview-5](../../assets/blog-images/ai-overview-5.png)
 
 接下来先聊两个新出现的术语：**API** 和 **Token**。
 
@@ -392,8 +392,7 @@ AI 可能会回答："沿着河流的 bank（河岸）可以分为多种类型�
 
 AI 立刻就能领悟你的意图和输出格式。
 
-![香蕉 =|690x120](upload://jtFAXRzZbCESvXWHnTqCSAWoKs9.png)
-
+![ai-overview-6](../../assets/blog-images/ai-overview-6.png)
 回到经济学的例子，用 Few-shot 就是这样：
 
 ```
@@ -403,7 +402,7 @@ Bank 的主要功能是什么？
 问题：请解释不同类型的 bank。
 ```
 
-![bank|536x500](upload://9QbJayhWW1B1cI4DhcVCanHsWYb.png)
+![ai-overview-7](../../assets/blog-images/ai-overview-7.png)
 
 Few-shot 还是控制输出格式的利器，比如：
 
