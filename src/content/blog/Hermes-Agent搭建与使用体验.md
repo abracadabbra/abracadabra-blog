@@ -1,6 +1,6 @@
 ---
 title: 'Hermes Agent 搭建与使用体验'
-description: '从零开始搭建 Hermes AI 助手，接入元宝，实现自动新闻搜集'
+description: '从零开始搭建 Hermes AI 助手，接入微信和飞书，实现自动新闻搜集'
 pubDate: '2026-05-10 19:00:00'
 tags: ["AI工具", "Hermes", "自动化"]
 categories: ["AI工具"]
@@ -11,7 +11,7 @@ categories: ["AI工具"]
 Hermes Agent 是 Nous Research 推出的 CLI AI 助手，可以：
 - 在终端中与 AI 对话
 - 执行系统命令、读写文件
-- 连接多种插件（Telegram、元宝等）
+- 连接多种插件（Telegram、微信、飞书等）
 - 设置定时任务自动执行
 
 ## 安装过程
@@ -83,31 +83,34 @@ hermes sessions list
 hermes sessions view <session-id>
 ```
 
-## 接入元宝插件
+## 接入微信和飞书
 
-Hermes 支持接入元宝（腾讯 AI 助手），实现微信消息自动回复。
+Hermes 支持接入微信和飞书，实现消息自动回复。
 
 ### 安装插件
 
 ```bash
-hermes plugins install yuanbao
+hermes plugins install weixin feishu
 ```
 
 ### 配置登录
 
 ```bash
-hermes yuanbao login
-# 会弹出二维码，用元宝 APP 扫码登录
+hermes weixin login
+hermes feishu login
+# 会弹出二维码，用微信/飞书 APP 扫码登录
 ```
 
 ### 配置自动回复
 
 ```bash
 # 设置 AI 自动回复
-hermes config set yuanbao.auto_reply true
+hermes config set weixin.auto_reply true
+hermes config set feishu.auto_reply true
 
 # 设置监听的群聊
-hermes config set yuanbao.listen_groups '["群聊名称"]'
+hermes config set weixin.listen_groups '["群聊名称"]'
+hermes config set feishu.listen_groups '["群聊名称"]'
 ```
 
 ## 定时任务：自动搜集新闻
@@ -141,7 +144,7 @@ hermes cron run ev-news
 
 ### 3. 查看搜集结果
 
-新闻会自动发送到元宝群聊，格式如下：
+新闻会自动发送到微信/飞书群聊，格式如下：
 
 ```
 📰 AI 行业新闻 | 2026-05-10
@@ -263,7 +266,7 @@ Hermes Agent 是一个功能强大的 CLI AI 助手，特别适合：
 相比传统的 AI 聊天工具，Hermes 的优势在于：
 1. 可以直接操作服务器
 2. 支持定时任务
-3. 可以连接外部服务（元宝、Telegram 等）
+3. 可以连接外部服务（微信、飞书、Telegram 等）
 4. 完全在终端运行，适合开发者
 
 如果你也想试试，官方文档：https://hermes-agent.nousresearch.com/docs
