@@ -229,90 +229,6 @@ Hermes 可以直接操作 Git 仓库，帮你写代码、提交、推送。
 - 批量修改代码
 - 自动化 Git 操作
 
-## Hermes 中调用 Claude 的三种方式
-
-Hermes Agent 本身是一个 AI 编排框架，底层模型可以自由切换。如果你想让专业的 Claude 来写代码，有三种方式，各有适用场景：
-
-### 方式一：直接调用 Claude Code CLI
-
-```bash
-terminal(command="claude -p '帮我写一个 React 组件' --max-turns 10")
-```
-
-这是最直接的方式——Hermes 通过终端命令调用 Claude Code CLI，Claude 独立执行任务。
-
-**特点：**
-- Claude 直接读写文件、执行命令
-- 非交互式（`-p` 模式），执行完自动退出
-- 不经过 Hermes 子代理，没有额外的 token 消耗
-- 适合**单次、明确的编码任务**
-
-### 方式二：Hermes 子代理 + ACP 协议（真正的 Claude 子代理）
-
-```bash
-delegate_task(
-    goal="帮我写一个 REST API",
-    acp_command="copilot",
-    toolsets=["terminal", "file"]
-)
-```
-
-这种方式通过 ACP（Agent Communication Protocol）协议启动一个 Claude Code 子代理，Hermes 与 Claude 之间通过标准协议通信。
-
-**特点：**
-- 真正的 Claude 子代理，使用 Claude 的模型能力
-- 子代理拥有独立的终端会话和文件系统
-- 支持并行执行多个任务
-- 适合**复杂的、需要多步推理的编码任务**
-
-### 方式三：Hermes 原生子代理（上次我用的方式）
-
-```bash
-delegate_task(
-    goal="帮我写一个二次元风格的博客封面页",
-    toolsets=["terminal", "file"]
-)
-```
-
-这种方式启动的是 Hermes 自己的子代理，底层模型取决于你的配置（我用的是 mimo-v2.5-pro）。
-
-**特点：**
-- 不依赖 Claude Code，用你自己的 API
-- 子代理有独立会话，但模型能力取决于配置
-- 成本最低（用自己的 API 额度）
-- 适合**文件操作、简单编码、信息整理**等任务
-
-### 三种方式对比
-
-| | 直接调 Claude CLI | ACP 子代理 | Hermes 原生子代理 |
-|---|---|---|---|
-| **底层模型** | Claude | Claude | 取决于配置 |
-| **Token 消耗** | Claude 额度 | Claude 额度 | 你自己的 API |
-| **独立会话** | ❌ | ✅ | ✅ |
-| **并行执行** | ❌ | ✅ | ✅ |
-| **适用场景** | 单次编码 | 复杂编码 | 通用任务 |
-| **成本** | 中 | 高 | 低 |
-
-### 实际案例：二次元博客封面页
-
-我用**方式三**（Hermes 原生子代理）来创建一个二次元风格的博客封面页：
-
-```bash
-# 启动子代理
-delegate_task(
-    goal="在 /root/anime-blog-cover/ 创建一个二次元风格的动态博客封面页",
-    toolsets=["terminal", "file"]
-)
-```
-
-子代理执行了约 400 秒，但只生成了 `index.html`，缺少 CSS 和 JS 文件。于是我手动补全了：
-- `style.css`（10.9KB）— 樱花飘落、星光闪烁、霓虹渐变
-- `script.js`（6.3KB）— Canvas 动画、打字机效果
-
-最后推送到 GitHub，通过 Vercel API 自动部署到 `anime-blog-cover.vercel.app`。
-
-这个案例说明：**Hermes 子代理适合快速搭建框架，但细节打磨还需要人工介入。**
-
 ## 其他实用功能
 
 ### 1. 导出聊天记录
@@ -346,13 +262,11 @@ Hermes Agent 是一个功能强大的 CLI AI 助手，特别适合：
 - **信息搜集**：定时抓取新闻、监控数据
 - **自动化工作流**：通过插件连接各种服务
 - **开发辅助**：代码生成、调试、文档编写
-- **AI 编排**：灵活调用 Claude、Copilot 等专业编码模型
 
 相比传统的 AI 聊天工具，Hermes 的优势在于：
 1. 可以直接操作服务器
 2. 支持定时任务
 3. 可以连接外部服务（微信、飞书、Telegram 等）
 4. 完全在终端运行，适合开发者
-5. **支持多种 AI 模型编排**——简单任务用自己的 API，复杂编码调 Claude，按需切换
 
-如果你想试试，官方文档：https://hermes-agent.nousresearch.com/docs
+如果你也想试试，官方文档：https://hermes-agent.nousresearch.com/docs
