@@ -15,7 +15,7 @@ import mermaid from 'astro-mermaid';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://junsen.online',
+  site: 'https://abracadabra.cc.cd',
   experimental: {
     fonts: [
       {
