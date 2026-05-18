@@ -4,7 +4,6 @@ description: '让数据说话，让 AI 辩论，让决策有据可依。一个�
 pubDate: '2026-05-18'
 tags: ['AI', 'Agent', '量化交易', 'LLM', 'Python', 'FastAPI', '黄金', '多Agent辩论']
 categories: ['AI开发', '量化金融']
-heroImage: '/blog/gold-agent-hero.jpg'
 ---
 
 > 让数据说话，让 AI 辩论，让决策有据可依
