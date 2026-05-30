@@ -1,3 +1,6 @@
+<img width="2950" height="1814" alt="image" src="https://github.com/user-attachments/assets/faf7ea31-2745-4f7a-945a-da7c30e9c10e" />
+
+
 # Astro Starter Kit: Blog
 
 ```sh
