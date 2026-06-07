@@ -168,7 +168,7 @@ LLM 问了几个问题来明确需求：
 
 最终的成品：
 
-![TinyTrans 优化后托盘菜单](https://cdn3.ldstatic.com/original/4X/4/2/0/420179ebee8bcf9afb32da88751d13bce68999e19.png)
+![TinyTrans 优化后托盘菜单](https://cdn3.ldstatic.com/original/4X/4/2/0/420179ebee8bcf9afb32da88751d13bce68999a8.png)
 
 作者评价：D 老师的品味一言难尽。🤪
 
