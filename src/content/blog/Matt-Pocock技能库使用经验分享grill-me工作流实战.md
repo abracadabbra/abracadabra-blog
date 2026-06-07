@@ -124,13 +124,29 @@ superpowers、trellis 等工作流都用过，它们的共同特点是**流程�
 
 > "I want to optimize the right-click menu; it looks very ugly right now. Clarify it."
 
+TinyTrans 原始托盘菜单长这样：
+
+![TinyTrans 原始托盘菜单](https://cdn3.ldstatic.com/original/4X/a/2/e/a2e63a7055e8a77cc57fd3542844cf61252b2e19.png)
+
 ### grill-with-docs 阶段
 
 grill-with-docs 开始「拷问」需求细节，全程追问直到完全理解。这个过程虽然长，但确保了双方对需求的一致理解。
 
+![grill-with-docs 开始追问](https://cdn3.ldstatic.com/original/4X/2/b/b/2bbecda0a57814fa90f6bbd14bf0b2989bdd2327.png)
+
+LLM 问了几个问题来明确需求：
+
+![继续追问细节](https://cdn3.ldstatic.com/original/4X/7/9/2/7921391f3bcf342c760afe3d53b53e7c47b36c8a.png)
+
+![询问具体需求](https://cdn3.ldstatic.com/original/4X/6/e/2/6e2785bebc7973782a526f895ae27b73ee402cc6.png)
+
 ### to-prd 阶段
 
 一旦「拷问」完成，意味着你和 LLM 就「达成共识」了。接下来形成 PRD 文档，全程跟着 LLM 的提示走。
+
+![to-prd 形成文档](https://cdn3.ldstatic.com/original/4X/0/c/1/0c1b5d1f9d3e7d9612917f488290e3d1fa7ff958.png)
+
+![继续完善 PRD](https://cdn3.ldstatic.com/original/4X/0/5/1/0512f46ccb4315c321290d5a0f891fe12e81b285.png)
 
 关于是否要自己审查 PRD：
 
@@ -140,9 +156,21 @@ grill-with-docs 开始「拷问」需求细节，全程追问直到完全理解�
 
 拆分任务时唯一需要注意的就是检查是否做了**垂直切片**。当然，这个事情还是具体问题具体分析，横向切片也不是完全不能接受。
 
+![to-issues 拆分任务](https://cdn3.ldstatic.com/original/4X/7/2/0/7201c4d3726c83d817ec73720cd2d116be7380d3.png)
+
 ### tdd 阶段
 
 让 LLM 这个「牛马」自己跑就是了。它会用 RED/GREEN 方式自己鞭策自己，过不了就自己打回重做。
+
+![tdd 红色阶段](https://cdn3.ldstatic.com/original/4X/d/c/c/dcc59384075a557bac630100bd80e55997563e6e.png)
+
+![tdd 绿色阶段](https://cdn3.ldstatic.com/original/4X/a/f/5/af5594a0a3d0362c575ee0b9553cd391e0886651.png)
+
+最终的成品：
+
+![TinyTrans 优化后托盘菜单](https://cdn3.ldstatic.com/original/4X/4/2/0/420179ebee8bcf9afb32da88751d13bce68999e19.png)
+
+作者评价：D 老师的品味一言难尽。🤪
 
 ---
 
