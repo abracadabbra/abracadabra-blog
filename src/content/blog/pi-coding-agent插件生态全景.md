@@ -1,7 +1,7 @@
 ---
 title: 'Pi Coding Agent 插件生态全景：从极简 harness 到高效编程利器'
 description: '整合两篇 linux.do 精品帖子，系统梳理 Pi Coding Agent 的插件生态、极简哲学与实战经验。'
-pubDate: '2026-06-05'
+pubDate: '2026-06-12'
 tags: ["AI", "AI Agent", "Pi", "编程工具", "插件生态", "上下文工程"]
 categories: ["AI开发"]
 ---

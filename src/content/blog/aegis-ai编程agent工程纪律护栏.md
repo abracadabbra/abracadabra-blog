@@ -1,7 +1,7 @@
 ---
 title: 'Aegis：为 AI 编程 Agent 装上工程纪律护栏'
 description: '深度解析 Aegis Method Pack：如何用 evidence-driven 工作流让 AI 编程 Agent 变得可验证、可预测、不熵增。'
-pubDate: '2026-06-05'
+pubDate: '2026-06-12'
 tags: ["AI", "AI Agent", "编程工具", "方法论", "Claude Code", "Superpowers"]
 categories: ["AI开发"]
 ---

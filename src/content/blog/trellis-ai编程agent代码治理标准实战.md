@@ -1,7 +1,7 @@
 ---
 title: 'Trellis 实战：用「能力合同」让 AI 编程 Agent 学会自我约束'
 description: '深入解析 Trellis 治理标准：能力合同、证据图、预算控制、ADR 生命周期，配合 Pi 实现个人项目开发工作流。'
-pubDate: '2026-06-05'
+pubDate: '2026-06-12'
 tags: ["AI", "AI Agent", "Trellis", "Pi", "代码治理", "方法论", "Claude Code"]
 categories: ["AI开发"]
 ---
