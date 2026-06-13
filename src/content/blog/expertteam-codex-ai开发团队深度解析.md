@@ -1,10 +1,9 @@
 ---
-title: ExpertTeam-Codex 深度解析：把 Codex CLI 变成「AI 开发团队」
-description: 深入剖析 ReJeCtAll/ExpertTeam-Codex 的核心架构——主理人编排模式、质量门禁设计、知识库体系和 Anti-Slop 评审框架
-pubDate: 2026-06-13
-tags: [AI编程, 多Agent协作, Codex, Agent工具链]
-categories: [AI Agent]
-heroImage: null
+title: 'ExpertTeam-Codex 深度解析：把 Codex CLI 变成「AI 开发团队」'
+description: '深入剖析 ReJeCtAll/ExpertTeam-Codex 的核心架构——主理人编排模式、质量门禁设计、知识库体系和 Anti-Slop 评审框架'
+pubDate: '2026-06-13'
+tags: ['AI编程', '多Agent协作', 'Codex', 'Agent工具链']
+categories: ['AI Agent']
 ---
 
 ## 前言
