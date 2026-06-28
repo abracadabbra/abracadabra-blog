@@ -53,6 +53,22 @@ const screenshotMap: Record<string, string> = {
 	'zhangxuefeng-agent': '/images/projects/zhangxuefeng-agent.png',
 	'gold-agent': '/images/projects/gold-agent.png',
 };
+
+// 手动补充项目描述和技术栈（GitHub API 信息不足时覆盖）
+const projectOverrides: Record<string, { description: string; tags: string[] }> = {
+	'resume-manage': {
+		description: '基于 Vue3 + TypeScript 的简历管理后台系统，支持简历信息录入、在线预览、PDF 导出、多版本管理等功能。采用 Element Plus 组件库，提供响应式布局，适配 PC 和移动端。',
+		tags: ['Vue3', 'TypeScript', 'Element Plus', 'Vite', '简历管理'],
+	},
+	'zhangxuefeng-agent': {
+		description: '张雪峰风格 AI 咨询 Agent，模拟张雪峰老师的风格为学生提供升学、就业、职业规划等咨询服务。基于 LangChain 框架构建，集成 RAG 检索增强生成，支持多轮对话和上下文记忆。',
+		tags: ['Python', 'LangChain', 'RAG', 'Agent', 'AI 咨询'],
+	},
+	'gold-agent': {
+		description: '量化 + LLM 混合驱动的黄金价格分析 Agent，结合量化交易策略与大语言模型进行黄金价格走势预测和投资决策辅助。集成 Prophet 时间序列预测、多 Agent 辩论机制，支持实时行情数据接入。',
+		tags: ['Python', 'LLM', '量化交易', 'Prophet', '多 Agent'],
+	},
+};
 ---
 
 <!doctype html>
@@ -282,45 +298,47 @@ const screenshotMap: Record<string, string> = {
 			<p class="page-intro">这些是我开发和维护的开源项目，欢迎使用和贡献！</p>
 
 			<ul class="projects-list">
-				{projects.map((project) => (
-					<li class="project-item">
-						<div class="project-header">
-							<h3 class="project-name">
-								<a href={project.url} target="_blank" rel="noopener noreferrer" class="project-link">
-									{project.name}
-								</a>
-							</h3>
-							{project.stars > 0 && (
-								<div class="project-stars">
-									<svg class="star-icon" viewBox="0 0 16 16" fill="currentColor">
-										<path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z" />
-									</svg>
-									<span>{project.stars}</span>
-								</div>
-							)}
-						</div>
-						<p class="project-description">{project.description}</p>
-						{(screenshotMap[project.name]) ? (
-							<img class="project-screenshot" src={screenshotMap[project.name]} alt={`${project.name} screenshot`} />
-						) : null}
-						{(project.tags && project.tags.length > 0) || project.language ? (
-							<div class="project-tags">
-								{project.language && (
-									<span class="project-tag language-tag">{project.language}</span>
+				{projects.map((project) => {
+					const override = projectOverrides[project.name];
+					const displayDescription = override?.description ?? project.description;
+					const displayTags = override?.tags ?? project.tags;
+					return (
+						<li class="project-item">
+							<div class="project-header">
+								<h3 class="project-name">
+									<a href={project.url} target="_blank" rel="noopener noreferrer" class="project-link">
+										{project.name}
+									</a>
+								</h3>
+								{project.stars > 0 && (
+									<div class="project-stars">
+										<svg class="star-icon" viewBox="0 0 16 16" fill="currentColor">
+											<path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z" />
+										</svg>
+										<span>{project.stars}</span>
+									</div>
 								)}
-								{project.tags && project.tags.map((tag: string) => (
-									<span class="project-tag">{tag}</span>
-								))}
 							</div>
-						) : null}
-						<a href={project.url} target="_blank" rel="noopener noreferrer" class="github-link">
-							<svg class="github-icon" viewBox="0 0 16 16" fill="currentColor">
-								<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-							</svg>
-							View on GitHub
-						</a>
-					</li>
-				))}
+							<p class="project-description">{displayDescription}</p>
+							{(screenshotMap[project.name]) ? (
+								<img class="project-screenshot" src={screenshotMap[project.name]} alt={`${project.name} screenshot`} />
+							) : null}
+							{displayTags && displayTags.length > 0 ? (
+								<div class="project-tags">
+									{displayTags.map((tag: string) => (
+										<span class="project-tag">{tag}</span>
+									))}
+								</div>
+							) : null}
+							<a href={project.url} target="_blank" rel="noopener noreferrer" class="github-link">
+								<svg class="github-icon" viewBox="0 0 16 16" fill="currentColor">
+									<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+								</svg>
+								View on GitHub
+							</a>
+						</li>
+					);
+				})}
 			</ul>
 		</main>
 		<Footer />
