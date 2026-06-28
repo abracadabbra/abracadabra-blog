@@ -57,16 +57,16 @@ const screenshotMap: Record<string, string> = {
 // 手动补充项目描述和技术栈（GitHub API 信息不足时覆盖）
 const projectOverrides: Record<string, { description: string; tags: string[] }> = {
 	'resume-manage': {
-		description: '基于 Vue3 + TypeScript 的简历管理后台系统，支持简历信息录入、在线预览、PDF 导出、多版本管理等功能。采用 Element Plus 组件库，提供响应式布局，适配 PC 和移动端。',
-		tags: ['Vue3', 'TypeScript', 'Element Plus', 'Vite', '简历管理'],
+		description: 'AI 驱动的简历管理 Agent 系统，集成 LLM 智能简历生成与优化建议。基于 Vue3 + TypeScript 构建，支持简历信息录入、AI 辅助内容生成、在线预览、PDF 导出、多版本管理。采用 Element Plus 组件库，提供响应式布局，适配 PC 和移动端。',
+		tags: ['Vue3', 'TypeScript', 'LLM', 'AI Agent', 'Element Plus', 'Vite'],
 	},
 	'zhangxuefeng-agent': {
-		description: '张雪峰风格 AI 咨询 Agent，模拟张雪峰老师的风格为学生提供升学、就业、职业规划等咨询服务。基于 LangChain 框架构建，集成 RAG 检索增强生成，支持多轮对话和上下文记忆。',
-		tags: ['Python', 'LangChain', 'RAG', 'Agent', 'AI 咨询'],
+		description: '张雪峰风格 AI 咨询 Agent，模拟张雪峰老师的风格为学生提供升学、就业、职业规划等咨询服务。基于 LangChain 框架构建，集成 RAG 检索增强生成，支持多轮对话和上下文记忆。核心能力：多 Agent 协作决策、知识库检索、个性化建议生成。',
+		tags: ['Python', 'LangChain', 'RAG', 'AI Agent', '多轮对话', '职业规划'],
 	},
 	'gold-agent': {
-		description: '量化 + LLM 混合驱动的黄金价格分析 Agent，结合量化交易策略与大语言模型进行黄金价格走势预测和投资决策辅助。集成 Prophet 时间序列预测、多 Agent 辩论机制，支持实时行情数据接入。',
-		tags: ['Python', 'LLM', '量化交易', 'Prophet', '多 Agent'],
+		description: '量化 + LLM 混合驱动的黄金价格分析 Agent，结合量化交易策略与大语言模型进行黄金价格走势预测和投资决策辅助。核心能力：多 Agent 辩论机制（多空博弈）、Prophet 时间序列预测、实时行情数据接入、LLM 市场情绪分析。',
+		tags: ['Python', 'LLM', 'AI Agent', '量化交易', '多 Agent 辩论', 'Prophet'],
 	},
 };
 ---
