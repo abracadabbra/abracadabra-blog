@@ -6,12 +6,9 @@ import { SITE_TITLE } from '../consts';
 
 // GitHub 仓库列表 - 只需要填写仓库的 owner/repo 格式
 const repos = [
-	'xinnan-tech/xiaozhi-esp32-server',
-	'huangjunsen0406/py-xiaozhi',
-	'huangjunsen0406/UnifyPy',
-	'huangjunsen0406/EnvHub',
-	'huangjunsen0406/xiaozhi-mcphub',
-	'samanhappy/mcphub'
+	'abracadabbra/resume-manage',
+	'abracadabbra/zhangxuefeng-agent',
+	'abracadabbra/gold-agent'
 ];
 
 // 从 GitHub API 获取仓库信息
@@ -49,6 +46,13 @@ async function fetchRepoData(repo: string) {
 // 获取所有仓库数据
 const projectsData = await Promise.all(repos.map(repo => fetchRepoData(repo)));
 const projects = projectsData.filter((p): p is NonNullable<typeof p> => p !== null); // 过滤掉失败的请求
+
+// 项目截图映射（仓库名 -> 图片路径）
+const screenshotMap: Record<string, string> = {
+	'resume-manage': '/images/projects/resume-manage.png',
+	'zhangxuefeng-agent': '/images/projects/zhangxuefeng-agent.png',
+	'gold-agent': '/images/projects/gold-agent.png',
+};
 ---
 
 <!doctype html>
@@ -148,6 +152,15 @@ const projects = projectsData.filter((p): p is NonNullable<typeof p> => p !== nu
 				display: flex;
 				flex-wrap: wrap;
 				gap: 0.5rem;
+			}
+
+			.project-screenshot {
+				width: 100%;
+				border-radius: 6px;
+				margin: 0.75rem 0 1rem 0;
+				border: 1px solid rgb(var(--gray-light));
+				object-fit: cover;
+				max-height: 300px;
 			}
 
 			.project-tag {
@@ -287,6 +300,9 @@ const projects = projectsData.filter((p): p is NonNullable<typeof p> => p !== nu
 							)}
 						</div>
 						<p class="project-description">{project.description}</p>
+						{(screenshotMap[project.name]) ? (
+							<img class="project-screenshot" src={screenshotMap[project.name]} alt={`${project.name} screenshot`} />
+						) : null}
 						{(project.tags && project.tags.length > 0) || project.language ? (
 							<div class="project-tags">
 								{project.language && (

@@ -16,20 +16,6 @@ import mermaid from 'astro-mermaid';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://abracadabra.cc.cd',
-  experimental: {
-    fonts: [
-      {
-        name: 'LXGWZhenKai',
-        cssVariable: '--font-lxgw',
-        provider: 'local',
-        variants: [
-          {
-            src: ['./src/assets/fonts/LXGWZhenKai-Regular.ttf'],
-          }
-        ],
-      },
-    ],
-  },
   integrations: [
     mdx({
       remarkPlugins: [remarkMath, remarkGfm],

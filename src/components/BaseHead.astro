@@ -5,7 +5,6 @@ import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
 import { SITE_TITLE } from '../consts';
-import { Font } from 'astro:assets';
 
 interface Props {
 	title: string;
@@ -18,8 +17,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, image = FallbackImage } = Astro.props;
 ---
 
-<!-- Font Preload -->
-<Font cssVariable="--font-lxgw" preload />
+<!-- Font Preload (handled via @font-face in global.css) -->
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
